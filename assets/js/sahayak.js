@@ -46,7 +46,8 @@ function sendMessage() {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Origin': 'https://arnabdeepnath.github.io'
+                'Origin': 'https://arnabdeepnath.github.io',
+                'Access-Control-Allow-Origin': '*',
             },
             body: JSON.stringify({ message: message })
         })
