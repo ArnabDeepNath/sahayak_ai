@@ -14,32 +14,32 @@ document.addEventListener('DOMContentLoaded', function() {
         chatInput.value = '';
 
         try {
-            const response = await fetch('http://localhost:5001/proxy/chat', {
+            const response = await fetch('https://api.sewasetu.assam.statedatacenter.in/sahayak/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Origin': 'https://sewasetu.assam.gov.in'
                 },
                 body: JSON.stringify({ message })
             });
 
             const data = await response.json();
             if (data.status === 'success') {
-                // Format the response
-                console.log('Response before formatting:', data.response);
                 let formattedResponse = formatResponse(data.response);
-                console.log('Response after formatting:', formattedResponse);
                 appendMessage('bot', formattedResponse);
             } else {
-                appendMessage('bot', 'Sorry, I encountered an error.');
+                appendMessage('bot', 'Sorry, I encountered an error processing your request.');
             }
         } catch (error) {
             console.error('Error:', error);
-            appendMessage('bot', 'Sorry, I encountered an error.');
+            appendMessage('bot', 'Sorry, I cannot connect to the service at the moment. Please try again later.');
         }
     });
 
     function formatResponse(response) {
+        if (!response) return 'No response received';
+        
         // Remove the thinking part enclosed in <think> tags
         let cleanResponse = response.replace(/<think>[\s\S]*?<\/think>\s*/i, '');
         
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cleanResponse = cleanResponse.replace(/\n/g, '<br>');
         
         // Remove any extra whitespace and trim
-        return cleanResponse.trim();
+        return cleanResponse.trim() || 'No readable response received';
     }
 
     function appendMessage(type, content) {
