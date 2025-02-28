@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Origin': 'https://arnabdeepnath.github.io/sahayak_ai/'
+                    'Origin': 'https://arnabdeepnath.github.io'
                 },
                 body: JSON.stringify({ message })
             });
