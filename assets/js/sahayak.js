@@ -41,7 +41,7 @@ function sendMessage() {
         }, interval);
 
         // Call backend API
-        fetch('http://localhost:5001/proxy/chat', {
+        fetch('https://api.sewasetu.assam.statedatacenter.in/sahayak/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
