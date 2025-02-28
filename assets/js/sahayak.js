@@ -45,7 +45,8 @@ function sendMessage() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Origin': 'https://arnabdeepnath.github.io/sahayak_ai/'
             },
             body: JSON.stringify({ message: message })
         })

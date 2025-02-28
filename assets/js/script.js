@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Origin': 'https://sewasetu.assam.gov.in'
+                    'Origin': 'https://arnabdeepnath.github.io/sahayak_ai/'
                 },
                 body: JSON.stringify({ message })
             });
